@@ -1,12 +1,17 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import Example from './example';
+import {Fill} from './Layout';
+import {render} from 'react-dom';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const app = (
+  <Example>
+    <Fill name="overwriteDefault">overwriteDefault</Fill>
+    <Fill name="fill">fill</Fill>
+    <Example>
+      <Fill name="default">Inception</Fill>
+      <Fill name="overwriteDefault">{null}</Fill>
+    </Example>
+  </Example>
+)
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+render(app, document.getElementById('root'));
