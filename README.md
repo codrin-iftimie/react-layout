@@ -2,9 +2,9 @@
 
 WIP. To be documented soon
 
-- [] documentation
-- [] blogpost
-- [] better examples
+- [ ] documentation
+- [ ] blogpost
+- [ ] better examples
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
