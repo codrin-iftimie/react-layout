@@ -3,9 +3,11 @@ import React, {useContext} from 'react';
 
 const Context = React.createContext();
 
-export default function Layout({children}) {
+export default function LayoutWrap({children}) {
+  const context = useContext(Context);
+  const parentSlots = context ? context.slots : {};
   const contextValue = {
-    slots: {},
+    slots: {...parentSlots},
     register(name, value) {
       this.slots[name] = value;
   
@@ -43,12 +45,15 @@ export function Fill({name, children}) {
 }
 
 export function createLayout(Component) {
-  return function Extent({children, ...rest}) {
+  function Layout({children, ...rest}) {
     return (
-      <Layout>
+      <LayoutWrap>
         {children}
         <Component {...rest} />
-      </Layout>
+      </LayoutWrap>
     )
   }
+  const displayName = Component.displayName || Component.name;
+  Layout.displayName = displayName ? `Layout(${displayName})` : 'Layout'
+  return Layout;
 } 
