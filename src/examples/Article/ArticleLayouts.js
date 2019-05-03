@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { Slot, createLayout, Fill } from "./Layout";
+import { Slot, createLayout, Fill } from "../../Layout";
 
 export const Header = styled.div`
   text-align: center;

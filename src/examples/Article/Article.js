@@ -1,5 +1,5 @@
 import React from "react";
-import { Fill } from "./Layout";
+import { Fill } from "../../Layout";
 
 function Article({ data }) {
   return (
